@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    /* ✅ Modern module & output */
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2020",
+
+    /* ✅ Strict type safety */
+    "strict": true,
+    "noImplicitAny": true,
+
+    /* ✅ ESM output */
+    "outDir": "dist",
+    "rootDir": ".",
+    "declaration": true,
+    "declarationMap": true,
+
+    /* ✅ Use `import type` & preserve it */
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+
+    /* ✅ Use ES module syntax in output */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* ✅ Source maps for debugging */
+    "sourceMap": true,
+
+    /* ✅ Include type roots if needed */
+    "types": ["node"],
+
+    /* ✅ For ECMAScript module package exports */
+    "moduleDetection": "force",
+
+    /* ✅ Recommended for Node ESM libraries */
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules", "dist"]
+}
