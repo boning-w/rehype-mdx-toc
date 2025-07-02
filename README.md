@@ -1,5 +1,9 @@
 # rehype-mdx-toc
 
+[![github actions](https://github.com/boning-w/rehype-mdx-toc/actions/workflows/ci.yml/badge.svg)](https://github.com/boning-w/rehype-mdx-toc/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/github/boning-w/rehype-mdx-toc/graph/badge.svg?token=5GBJECAL34)](https://codecov.io/github/boning-w/rehype-mdx-toc)
+[![license](https://img.shields.io/github/license/boning-w/rehype-mdx-toc)](https://github.com/boning-w/rehype-mdx-toc/blob/main/LICENSE)
+
 A rehype plugin to create the table of contents and convert it into MDX exports.
 
 ## Table of Contents
