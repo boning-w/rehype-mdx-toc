@@ -40,7 +40,7 @@
   "scripts": {
     "build": "tsc --build",
     "pretest": "npm run build",
-    "test": "node --test '**/test/*.js'"
+    "test": "node --test"
   },
   "dependencies": {
     "estree-util-value-to-estree": "^3.4.0",
