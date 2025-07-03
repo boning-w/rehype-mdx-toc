@@ -1,7 +1,7 @@
 {
   "name": "rehype-mdx-toc",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A rehype plugin to create the table of contents and convert it into MDX exports",
   "keywords": [
     "toc",
