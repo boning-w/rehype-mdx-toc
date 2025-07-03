@@ -53,6 +53,7 @@ Say we have mdx contents like this:
 ```js
 import { compile, run } from "@mdx-js/mdx";
 import rehypeMdxToc from "rehype-mdx-toc";
+import * as runtime from "react/jsx-runtime";
 
 const mdxContent = `
 # Heading 1
@@ -105,6 +106,7 @@ To generate `id` and `href` properties for each TOC item, you can use the `rehyp
 import { compile, run } from "@mdx-js/mdx";
 import rehypeSlug from "rehype-slug";
 import rehypeMdxToc from "rehype-mdx-toc";
+import * as runtime from "react/jsx-runtime";
 
 const mdxContent = `
 # Heading 1
@@ -167,6 +169,8 @@ bundleMDX({
 });
 ```
 
+> See [mdx-bundler#Accessing named exports](https://github.com/kentcdodds/mdx-bundler?tab=readme-ov-file#accessing-named-exports)
+> 
 > To access the `toc` export, You can use `getMDXExport` instead of `getMDXComponent` to treat the mdx file as a module instead of just a component.
 
 ```js
