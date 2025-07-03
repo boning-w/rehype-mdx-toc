@@ -62,20 +62,9 @@ jobs:
       - run: npm ci
       - name: Build
         run: npm run build
-      - name: Pack tgz
-        run: npm pack
-      - name: Pack zip
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          zip -r rehype-mdx-toc-$VERSION.zip dist src package.json README.md LICENSE
       - name: Publish to npm
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            *.tgz
-            *.zip
-        
