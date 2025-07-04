@@ -40,24 +40,25 @@
   "scripts": {
     "build": "tsc --build",
     "pretest": "npm run build",
-    "test": "node --test",
+    "test": "npx @biomejs/biome check ./src ./test && node --test",
     "test-coverage": "c8 --100 node --test && c8 report --reporter=html --reporter=lcov"
   },
   "dependencies": {
-    "estree-util-value-to-estree": "^3.4.0",
+    "estree-util-value-to-estree": "^3.0.0",
     "hast-util-heading-rank": "^3.0.0",
-    "hast-util-to-string": "^3.0.1",
-    "unist-util-mdx-define": "^1.1.2",
+    "hast-util-to-string": "^3.0.0",
+    "unist-util-mdx-define": "^1.0.0",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.0.6",
     "@mdx-js/mdx": "^3.1.0",
     "@types/hast": "^3.0.4",
     "@types/node": "^22.16.0",
-    "@types/react": "^19.1.8",
+    "@types/react": "^18.3.23",
     "@types/vfile": "^3.0.2",
     "c8": "^10.1.3",
-    "react": "^19.1.0",
+    "react": "^18.3.1",
     "rehype-slug": "^6.0.0",
     "typescript": "^5.8.3"
   },

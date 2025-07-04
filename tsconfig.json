@@ -19,10 +19,6 @@
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
 
-    /* ✅ Use ES module syntax in output */
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-
     /* ✅ Source maps for debugging */
     "sourceMap": true,
 
@@ -34,8 +30,7 @@
 
     /* ✅ Recommended for Node ESM libraries */
     "resolveJsonModule": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": ["node_modules", "dist"]
 }

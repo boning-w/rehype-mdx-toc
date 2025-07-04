@@ -1,9 +1,9 @@
-import { describe, it } from "node:test";
 import assert from "node:assert/strict";
+import { describe, it } from "node:test";
 import { compile, run } from "@mdx-js/mdx";
+import * as runtime from "react/jsx-runtime";
 import rehypeMdxToc, { type TocItem } from "rehype-mdx-toc";
 import rehypeSlug from "rehype-slug";
-import * as runtime from "react/jsx-runtime";
 
 const source = `
   # The Main Heading
@@ -61,13 +61,13 @@ describe("rehype-mdx-toc", () => {
     const toc = await getTocFromMdxModule(mdx);
     assert.ok(
       toc === undefined,
-      "Should generate undefined TOC for no headings"
+      "Should generate undefined TOC for no headings",
     );
   });
 
   it("should generate correct TOC structure without heading IDs", async () => {
     const toc = await getTocFromMdxModule(
-      "# Heading 1\n\n## Heading 2\n\n### Heading 3"
+      "# Heading 1\n\n## Heading 2\n\n### Heading 3",
     );
     assert.deepEqual(toc, [
       {
@@ -190,7 +190,7 @@ describe("rehype-mdx-toc", () => {
     const result = await run(compiled, { ...runtime });
     assert.ok(
       Array.isArray(result.customToc),
-      "Should export toc with custom name"
+      "Should export toc with custom name",
     );
   });
 
@@ -199,7 +199,7 @@ describe("rehype-mdx-toc", () => {
     const toc = await getTocFromMdxModule(mdx);
     assert.ok(
       toc === undefined,
-      "should export toc with default value (which is undefined) without headings"
+      "should export toc with default value (which is undefined) without headings",
     );
   });
 
@@ -211,8 +211,8 @@ describe("rehype-mdx-toc", () => {
     });
     const result = await run(compiled, { ...runtime });
     assert.ok(
-      (result.toc = "No headings in this MDX"),
-      "should export toc with custom default value without headings"
+      result.toc === "No headings in this MDX",
+      "should export toc with custom default value without headings",
     );
   });
 

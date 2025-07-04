@@ -1,10 +1,10 @@
-import type { Root } from "hast";
-import type { VFile } from "vfile";
-import { define } from "unist-util-mdx-define";
-import { headingRank } from "hast-util-heading-rank";
-import { toString } from "hast-util-to-string";
 import { valueToEstree } from "estree-util-value-to-estree";
+import type { Root } from "hast";
+import { headingRank } from "hast-util-heading-rank";
+import { toString as getNodeValue } from "hast-util-to-string";
+import { define } from "unist-util-mdx-define";
 import { CONTINUE, visit } from "unist-util-visit";
+import type { VFile } from "vfile";
 
 /**
  * Type representing the depth of headings in a table of contents.
@@ -97,7 +97,7 @@ export default function rehypeMdxToc({
     const currentNumbering: number[] = [0, 0, 0, 0, 0, 0];
 
     // Visit every HTML element in the tree.
-    visit(tree, "element", function (node) {
+    visit(tree, "element", (node) => {
       // Check if this element is a heading (<h1>–<h6>).
       const rank = headingRank(node);
 
@@ -120,7 +120,7 @@ export default function rehypeMdxToc({
       // Add this heading to the TOC array.
       toc.push({
         depth,
-        value: toString(node),
+        value: getNodeValue(node),
         numbering: [...currentNumbering],
         id: node.properties?.id as string | undefined,
         href: node.properties?.id ? `#${node.properties.id}` : undefined,
@@ -129,7 +129,7 @@ export default function rehypeMdxToc({
 
     // Attach the TOC as an exported variable in the MDX file.
     const data = toc.length ? toc : options.default;
-    
+
     define(tree, file, {
       [name]: valueToEstree(data),
     });
